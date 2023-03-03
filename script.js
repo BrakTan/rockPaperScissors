@@ -20,36 +20,40 @@ function getPlayerChoice(){
     return playerChoice;
 }
 
+function playRound(playerChoice, computerChoice){
+    if(playerChoice === computerChoice){
+        return "Draw !!";
+    }
+    else if(playerChoice === "rock"){
+        if(computerChoice === "paper"){
+            return "You Lose ! Paper beats Rock !";
+        }
+        else if(computerChoice === "scissors"){
+            return "You Win ! Rock beats Scissors !";
+        }
+    }
+    else if(playerChoice === "paper"){
+        if(computerChoice === "scissors"){
+            return "You Lose ! Scissors beat Paper !";
+        }
+        else if(computerChoice === "rock"){
+            return "You Win ! Paper beats Rock !";
+        }
+    }
+    else if(playerChoice === "scissors"){
+        if(computerChoice === "rock"){
+            return "You Lose ! Scissors beat Rock !";
+        }
+        else if(computerChoice === "paper"){
+            return "You Win ! Scissors beat Paper !";
+        }
+    }
+    else{
+        return "Did you write it well ?";
+    }
+}
+
 let playerChoice = getPlayerChoice();
 let computerChoice = getComputerChoice();
 
-if(playerChoice === computerChoice){
-    console.log("Draw !!");
-}
-else if(playerChoice === "rock"){
-    if(computerChoice === "paper"){
-        console.log("You Lose ! Paper beats Rock !");
-    }
-    else if(computerChoice === "scissors"){
-        console.log("You Win ! Rock beats Scissors !");
-    }
-}
-else if(playerChoice === "paper"){
-    if(computerChoice === "scissors"){
-        console.log("You Lose ! Scissors beat Paper !");
-    }
-    else if(computerChoice === "rock"){
-        console.log("You Win ! Paper beats Rock !");
-    }
-}
-else if(playerChoice === "scissors"){
-    if(computerChoice === "rock"){
-        console.log("You Lose ! Scissors beat Rock !");
-    }
-    else if(computerChoice === "paper"){
-        console.log("You Win ! Scissors beat Paper !");
-    }
-}
-else{
-    console.log("Did you write it well ?");
-}
+console.log(playRound(playerChoice, computerChoice));
