@@ -15,4 +15,8 @@ function getComputerChoice(){
     }
 }
 
-let playerChoice = prompt("Choose between Rock, Paper or Scissors.").toLowerCase();
+function getPlayerChoice(){
+    let playerChoice = prompt("Choose between Rock, Paper or Scissors.").toLowerCase();
+    return playerChoice;
+}
+
