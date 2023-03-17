@@ -4,6 +4,9 @@ const track = document.getElementById('track');
 const playerScoreTrack = document.querySelector('.playerScore');
 const computerScoreTrack = document.querySelector('.computerScore');
 const result = document.querySelector('.result');
+const firstTrack = document.querySelector('.firstTrack');
+const secondTrack = document.querySelector('.secondTrack');
+const thirdTrack = document.querySelector('.thirdTrack');
 
 
 const buttons = document.querySelectorAll('button');
@@ -12,9 +15,9 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         const playerChoice = button.getAttribute('get-data');
         const computerChoice = getComputerChoice();
-        const content = document.createElement('p');
-        content.textContent = playRound(playerChoice, computerChoice);
-        track.appendChild(content);
+        firstTrack.textContent = secondTrack.textContent;
+        secondTrack.textContent = thirdTrack.textContent;
+        thirdTrack.textContent = playRound(playerChoice, computerChoice);
         game()
     })
 })
