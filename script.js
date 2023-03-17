@@ -3,7 +3,9 @@ let computerScore = 0;
 const track = document.getElementById('track');
 const playerScoreTrack = document.querySelector('.playerScore');
 const computerScoreTrack = document.querySelector('.computerScore');
-const result = document.querySelector('.result');
+const container = document.querySelector('#container');
+const result = document.createElement('h1');
+result.classList.add('result');
 const firstTrack = document.querySelector('.firstTrack');
 const secondTrack = document.querySelector('.secondTrack');
 const thirdTrack = document.querySelector('.thirdTrack');
@@ -88,9 +90,17 @@ function playRound(playerChoice, computerChoice){
 
 function game(){
     if(playerScore === 5){
+        container.appendChild(result);
         result.textContent = 'Finally!! You Win !!!'
+        buttons.forEach((button)=> {
+            button.setAttribute('disabled','');
+        })
     }
     else if(computerScore === 5){
+        container.appendChild(result);
         result.textContent = 'Oups... You Lose !'
+        buttons.forEach((button)=> {
+            button.setAttribute('disabled','');
+        })
     } 
 }
