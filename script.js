@@ -1,7 +1,23 @@
 let playerScore = 0;
 let computerScore = 0;
+const track = document.getElementById('track');
+const playerScoreTrack = document.querySelector('.playerScore');
+const computerScoreTrack = document.querySelector('.computerScore');
+const result = document.querySelector('.result');
 
 
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const playerChoice = button.getAttribute('get-data');
+        const computerChoice = getComputerChoice();
+        const content = document.createElement('p');
+        content.textContent = playRound(playerChoice, computerChoice);
+        track.appendChild(content);
+        game()
+    })
+})
 
 function getComputerChoice(){
     const randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -29,30 +45,36 @@ function playRound(playerChoice, computerChoice){
     else if(playerChoice === "rock"){
         if(computerChoice === "paper"){
             computerScore++;
+            computerScoreTrack.textContent = computerScore;
             return "You Lose ! Paper beats Rock !";
         }
         else if(computerChoice === "scissors"){
             playerScore++;
+            playerScoreTrack.textContent = playerScore;
             return "You Win ! Rock beats Scissors !";
         }
     }
     else if(playerChoice === "paper"){
         if(computerChoice === "scissors"){
             computerScore++;
+            computerScoreTrack.textContent = computerScore;
             return "You Lose ! Scissors beat Paper !";
         }
         else if(computerChoice === "rock"){
             playerScore++;
+            playerScoreTrack.textContent = playerScore;
             return "You Win ! Paper beats Rock !";
         }
     }
     else if(playerChoice === "scissors"){
         if(computerChoice === "rock"){
             computerScore++;
+            computerScoreTrack.textContent = computerScore;
             return "You Lose ! Scissors beat Rock !";
         }
         else if(computerChoice === "paper"){
             playerScore++;
+            playerScoreTrack.textContent = playerScore;
             return "You Win ! Scissors beat Paper !";
         }
     }
@@ -62,16 +84,10 @@ function playRound(playerChoice, computerChoice){
 }
 
 function game(){
-    if(playerScore > computerScore){
-        console.log("Finally : You Win !!!")
+    if(playerScore === 5){
+        result.textContent = 'Finally!! You Win !!!'
     }
-    else if(playerScore < computerScore){
-        console.log("Finally : You Lose !!!");
-    }
-    else{
-        console.log("Finally : Draw !!");
-    }
-    
+    else if(computerScore === 5){
+        result.textContent = 'Oups... You Lose !'
+    } 
 }
-
-game();
