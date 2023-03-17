@@ -1,6 +1,8 @@
 let playerScore = 0;
 let computerScore = 0;
 
+
+
 function getComputerChoice(){
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     switch(randomNumber){
@@ -18,10 +20,7 @@ function getComputerChoice(){
     }
 }
 
-function getPlayerChoice(){
-    const playerChoice = prompt("Choose between Rock, Paper or Scissors.").toLowerCase();
-    return playerChoice;
-}
+
 
 function playRound(playerChoice, computerChoice){
     if(playerChoice === computerChoice){
@@ -63,13 +62,6 @@ function playRound(playerChoice, computerChoice){
 }
 
 function game(){
-    for(i=0; i < 5; i++){
-        let playerChoice = getPlayerChoice();
-        let computerChoice = getComputerChoice();
-
-        console.log(playRound(playerChoice, computerChoice));
-        console.log(`Player score : ${playerScore} | Computer score : ${computerScore}\n \n`);
-    }
     if(playerScore > computerScore){
         console.log("Finally : You Win !!!")
     }
